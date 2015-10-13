@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
+    <link rel="stylesheet" href="bower_components/tip.subk/tip.subk.css" />
+    <link rel="stylesheet" href="bower_components/kendo-ui/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="bower_components/kendo-ui/styles/kendo.default.min.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/tip.subk.demo.css -->
+    <link rel="stylesheet" href="styles/tip.subk.demo.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/uikit.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="tip.portal.demo">
+
+    <div class="container">
+       <div ui-view></div>
+    </div>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/tip.subk/tip.subk.js"></script>
+    <script src="bower_components/tip.subk/tip.subk.templates.js"></script>
+    <script src="bower_components/kendo-ui/js/kendo.all.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+
+        <!-- build:js({.tmp,app}) scripts/tip.portal.demo.js -->
+        <script src="tip.core.router/router.provider.js"></script>
+        <script src="tip.core.router/router.directive.js"></script>
+        <script src="tip.portal.demo/tip.portal.demo.js"></script>
+        <script src="tip.portal.demo/tip.portal.demo.routing.js"></script>
+        <script src="tip.portal.demo/controllers/portal.controller.js"></script>
+        <script src="tip.portal.demo/controllers/top.controller.js"></script>
+        <!-- endbuild -->
+
+</body>
+</html>
