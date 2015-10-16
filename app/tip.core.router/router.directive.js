@@ -1,28 +1,33 @@
-//DRAFT VERSION JUST FOR POC
-angular.module('tip.core.router')
-  .directive('tipState', TipStateDirective);
+angular
+  .module('tip.core.router')
+  .directive('shortUiSref', ExtendedUiSrefDirective);
+
 /** @ngInject */
-function TipStateDirective($state, $compile,tipRouter) {
+function ExtendedUiSrefDirective($state, $compile, tipRouter) {
   return {
     restrict: 'A',
-    scope: {
-      tipState: '='
+    priority: 1004,
+    terminal: true,
+
+    controller: function ($scope) {
+      $scope.extendedSref = function (shortSref) {
+        //extend shortSref with rootState
+        return tipRouter.getRootState().name + "." + $scope.$eval(shortSref);
+      }
     },
-    replace:true,
-    link: function(scope, element) {
-      scope.srefState = tipRouter.getRootState().name+"."+scope.tipState.state;
-      //create an angular element. (this is still our "view")
-      var el = angular.element('<a ui-sref="{{srefState}}">{{tipState.label}}</a>'),
 
-      //compile the view into a function.
-       compiled = $compile(el);
+    compile: function ($element, $attrs) {
+      //create ui-sref attribute
+      $element.attr('ui-sref', '{{extendedSref("' + $attrs.shortUiSref + '")}}');
 
-      //append our view to the element of the directive.
-      element.append(el);
+      // must be removed to prevent compile loop
+      $element.removeAttr('short-ui-sref');
 
-      //bind our view to the scope!
-      //(try commenting out this line to see what happens!)
-      compiled(scope);
+      // compiling again
+      var fn = $compile($element);
+      return function ($scope) {
+        fn($scope);
+      }
     }
   }
 }
