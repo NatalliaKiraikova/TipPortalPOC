@@ -6,9 +6,10 @@
     .controller('tip.portal.demo.TopController', TopController);
 
   /** @ngInject */
-  function TopController() {
+  function TopController(contextModel) {
     this.changeModule = function(name){
       //load navigation items here
+      contextModel.setCurrentModuleName(name);
     };
   }
 })();
