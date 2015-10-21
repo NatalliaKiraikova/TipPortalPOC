@@ -1,0 +1,7 @@
+<ul class="left-sidebar-content">
+  <li ng-repeat="navitem in navitems">
+      <span>
+          <a ui-sref="{{extendSref(navitem.state)}}">{{navitem.label}}</a>
+      </span>
+  </li>
+</ul>

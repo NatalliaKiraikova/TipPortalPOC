@@ -1,11 +1,12 @@
 <ul class="secondary-content">
+  <!-- The first Home item is available for all modules, it refers to root-->
   <li>
     <i class="glyphish-globe"></i>
-
     <div class="title">
-      <a ui-sref="tip">Home</a>
+      <a ui-sref="{{rootSref()}}">Home</a>
     </div>
   </li>
+
   <li ng-repeat="navitem in navitems">
     <navigation-item data="navitem"></navigation-item>
   </li>

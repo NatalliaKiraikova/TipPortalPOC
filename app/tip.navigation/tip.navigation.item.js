@@ -9,9 +9,9 @@ function NavigationItem($state, $compile, tipRouter) {
       data: '=data'
     },
     controller: function ($scope, tipRouter) {
-      $scope.extendSref = function(sref) {
-        return tipRouter.getRootState().name + "." + sref;
+      $scope.extendSref = function (sref) {
+        return tipRouter.getExtendedWithRootState(sref);
       }
-  }
+    }
   }
 }

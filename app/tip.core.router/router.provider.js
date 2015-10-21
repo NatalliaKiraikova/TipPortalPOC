@@ -73,10 +73,13 @@ angular.module('tip.core.router', [ 'ui.router' ])
       registerNested();
       return self.state(state);
     };
-    this.$get = function() {
+    this.$get = function () {
       return {
-        getRootState:function(){
+        getRootState: function () {
           return rootState;
+        },
+        getExtendedWithRootState: function (sref) {
+          return this.getRootState().name + "." + sref;
         }
       };
     };
