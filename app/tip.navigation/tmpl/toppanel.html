@@ -1,13 +1,13 @@
 <ul class="secondary-content">
   <!-- The first Home item is available for all modules, it refers to root-->
-  <li>
+  <li ui-sref="{{rootSref()}}" ui-sref-active-eq="selected">
     <i class="glyphish-globe"></i>
     <div class="title">
-      <a ui-sref="{{rootSref()}}">Home</a>
+      <a>Home</a>
     </div>
   </li>
 
-  <li ng-repeat="navitem in navitems">
+  <li ng-repeat="navitem in navitems" ui-sref-active-eq="selected">
     <navigation-item data="navitem"></navigation-item>
   </li>
 </ul>

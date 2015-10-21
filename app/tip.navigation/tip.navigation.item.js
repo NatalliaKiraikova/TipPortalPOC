@@ -8,9 +8,17 @@ function NavigationItem($state, $compile, tipRouter) {
     scope: {
       data: '=data'
     },
-    controller: function ($scope, tipRouter) {
+    controller: function ($scope, $element, tipRouter) {
+      var fullsref;
+      $element.on("click", function () {
+        if (fullsref) {
+          $state.go(fullsref);
+        }
+      });
+
       $scope.extendSref = function (sref) {
-        return tipRouter.getExtendedWithRootState(sref);
+        fullsref = tipRouter.getExtendedWithRootState(sref);
+        return fullsref;
       }
     }
   }
