@@ -15,8 +15,8 @@ function NavigationLeftPanel() {
       $scope.$watch(function () {
           return contextModel.getLeftMenuConfig();
         }, function (newValue, oldValue) {
-          $scope.navitems = newValue[leftMenuConfigKey];
-          $scope.titleItem = newValue[titleItemKey];
+          $scope.navitems = newValue && newValue.hasOwnProperty(leftMenuConfigKey) ? newValue[leftMenuConfigKey] : undefined;
+          $scope.titleItem = newValue && newValue.hasOwnProperty(titleItemKey) ? newValue[titleItemKey] : undefined;
         }
       );
 
