@@ -1,12 +1,17 @@
 <ul class="left-sidebar-content">
-  <li ng-repeat="navitem in navitems">
-      <span>
-          <a ui-sref="{{extendSref(navitem.state)}}">{{navitem.label}}</a>
-      </span>
+  <div ng-if="titleItem" class="left-sidebar-title">{{titleItem}}</div>
+  <li ng-repeat="navitem in navitems" ui-sref-active-eq="selected">
+    <span class="ng-binding ng-scope" ng-if="!navitem.state">{{navitem.label}}</span>
+    <a ng-if="navitem.state" ui-sref="{{extendSref(navitem.state)}}">{{navitem.label}}</a>
+    <ul>
+      <li ng-repeat="childitem in navitem.children" ui-sref-active-eq="selected">
+        <a ui-sref="{{extendSref(childitem.state)}}">{{childitem.label}}</a>
+      </li>
+    </ul>
   </li>
 
 
-<!--<div class="left-sidebar">-->
+  <!--<div class="left-sidebar">-->
 
   <!--<div class="left-sidebar-title">-->
     <!--Menu <i class="vertical-align" ng-click="toggleLeftMenu()"></i>-->

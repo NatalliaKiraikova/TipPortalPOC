@@ -15,13 +15,18 @@
         {
           iconprefix: 'diamond', label: 'subkroute2', state: 'subkroute2',
           children: [
-            {label: 'Demo Item 2 SUBK', state: 'subkroute2'}
+            {label: 'Demo Item 2 SUBK NO state',
+              children: [
+                {label: 'Demo Item 3 SUBK', state: 'subkroute1'},
+                {label: 'Demo Item 4 SUBK', state: 'subkroute2'}
+              ]
+            }
           ]
         },
         {
           iconprefix: 'bank', label: 'subkroute3', state: 'subkroute3',
           children: [
-            {label: 'Demo Item 1 SUBK', state: 'subkroute1'}
+            {label: 'Demo Item 1 SUBK  SUBK NO state'}
           ]
         }];
       contextModelProvider.setConfig(SUBK_NAME, conf);

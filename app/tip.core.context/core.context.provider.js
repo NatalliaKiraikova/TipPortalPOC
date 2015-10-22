@@ -1,7 +1,6 @@
 angular.module('core.context').provider('contextModel', function () {
 
   this.configMap = [];
-  var leftMenuConfigKey = 'children';
 
   this.$get = function () {
     return this;
@@ -12,9 +11,7 @@ angular.module('core.context').provider('contextModel', function () {
   };
 
   this.setLeftMenuConfig = function (topPanelItem) {
-    if (topPanelItem && topPanelItem.hasOwnProperty(leftMenuConfigKey)) {
-      this.currentLeftMenuConfig = topPanelItem[leftMenuConfigKey];
-    }
+    this.currentLeftMenuConfig = topPanelItem;
   }
 
   this.getLeftMenuConfig = function () {
