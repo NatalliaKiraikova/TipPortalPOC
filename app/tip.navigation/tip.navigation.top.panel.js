@@ -8,16 +8,12 @@ function NavigationTopPanel() {
     templateUrl: "tip.navigation/tmpl/toppanel.html",
     scope: {},
     controller: function ($scope, contextModel, tipRouter) {
-      var topPanelConfig = "topPanelConfig";
       $scope.navitems = [];
 
       $scope.$watch(function () {
           return contextModel.getCurrentConfig();
         }, function (newValue, oldValue) {
-
-          if (newValue && topPanelConfig in newValue) {
-            $scope.navitems = newValue[topPanelConfig];
-          }
+          $scope.navitems = newValue;
         }
       );
 

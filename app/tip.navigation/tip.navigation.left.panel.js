@@ -8,15 +8,12 @@ function NavigationLeftPanel() {
     templateUrl: "tip.navigation/tmpl/leftpanel.html",
     scope: {},
     controller: function ($scope, contextModel, tipRouter) {
-      var leftPanelConfig = "leftPanelConfig";
       $scope.navitems = [];
 
       $scope.$watch(function () {
-          return contextModel.getCurrentConfig();
+          return contextModel.getLeftMenuConfig();
         }, function (newValue, oldValue) {
-          if (newValue && leftPanelConfig in newValue) {
-            $scope.navitems = newValue[leftPanelConfig];
-          }
+          $scope.navitems = newValue;
         }
       );
 
