@@ -1,6 +1,9 @@
-angular.module('core.context').provider('contextModel', function () {
+'use strict';
+angular.module('core.context').provider('contextModel', function (eventDispatcher) {
 
   this.configMap = [];
+
+  //this.dispatcher = eventDispatcher;
 
   this.$get = function () {
     return this;
@@ -12,6 +15,8 @@ angular.module('core.context').provider('contextModel', function () {
 
   this.setLeftMenuConfig = function (topPanelItem) {
     this.currentLeftMenuConfig = topPanelItem;
+    //despatch event
+    eventDispatcher.emit('LeftMenuConfigChanged', currentLeftMenuConfig);
   }
 
   this.getLeftMenuConfig = function () {

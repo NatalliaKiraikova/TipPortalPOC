@@ -1,3 +1,4 @@
+'use strict';
 //DRAFT VERSION JUST FOR POC
 angular.module('tip.core.router', [ 'ui.router' ])
   .provider('tipRouter', ['$stateProvider', function($stateProvider){

@@ -1,3 +1,4 @@
+'use strict';
 angular.module('tip.navigation').directive('navigationItem', NavigationItem);
 
 /** @ngInject */

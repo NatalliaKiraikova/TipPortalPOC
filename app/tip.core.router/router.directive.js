@@ -1,3 +1,4 @@
+'use strict';
 angular
   .module('tip.core.router')
   .directive('shortUiSref', ExtendedUiSrefDirective);

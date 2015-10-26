@@ -33,6 +33,7 @@ module.exports = function(config) {
       'bower_components/tip.subk/tip.subk.js',
       'bower_components/tip.subk/tip.subk.templates.js',
       'bower_components/kendo-ui/js/kendo.all.min.js',
+      'bower_components/angular-tiny-eventemitter/dist/angular-tiny-eventemitter.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/**/*spec.js'
