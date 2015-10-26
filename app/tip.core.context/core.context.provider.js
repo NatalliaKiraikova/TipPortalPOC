@@ -4,7 +4,6 @@ angular.module('core.context').provider('contextModel', function () {
   this.configMap = [];
 
   this.$get = function (eventEmitter) {
-    //this.dispatcher = eventDispatcher;
     eventEmitter.inject(this);
     return this;
   }
