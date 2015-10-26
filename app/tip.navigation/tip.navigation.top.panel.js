@@ -11,12 +11,11 @@ function NavigationTopPanel() {
     controller: function ($scope, contextModel, tipRouter) {
       $scope.navitems = [];
 
-      $scope.$watch(function () {
-          return contextModel.getCurrentConfig();
-        }, function (newValue, oldValue) {
-          $scope.navitems = newValue;
-        }
-      );
+      contextModel.on($scope, 'ConfigChanged', onConfigChange);
+
+      function onConfigChange(newValue) {
+        $scope.navitems = newValue;
+      }
 
       $scope.rootSref = function () {
         return tipRouter.getRootState().name;

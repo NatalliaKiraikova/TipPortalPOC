@@ -1,40 +1,24 @@
 'use strict';
-angular.module('core.context').provider('contextModel', function (eventDispatcher) {
+angular.module('core.context').provider('contextModel', function () {
 
   this.configMap = [];
 
-  //this.dispatcher = eventDispatcher;
-
-  this.$get = function () {
+  this.$get = function (eventEmitter) {
+    //this.dispatcher = eventDispatcher;
+    eventEmitter.inject(this);
     return this;
-  };
+  }
 
   this.setCurrentModuleName = function (moduleName) {
     this.currentModuleName = moduleName;
-  };
+    this.currentConfig = this.configMap ? this.configMap[this.currentModuleName] : undefined;
+    this.emit('ConfigChanged', this.currentConfig);
+  }
 
   this.setLeftMenuConfig = function (topPanelItem) {
     this.currentLeftMenuConfig = topPanelItem;
-    //despatch event
-    eventDispatcher.emit('LeftMenuConfigChanged', currentLeftMenuConfig);
+    this.emit('LeftMenuConfigChanged', this.currentLeftMenuConfig);
   }
-
-  this.getLeftMenuConfig = function () {
-    return this.currentLeftMenuConfig;
-  }
-
-  this.getCurrentConfig = function () {
-    if (!this.currentModuleName) {
-      // throw new Error("Current module name wasn't set");
-      return undefined;
-    }
-
-    //if (this.currentModuleName in this.configMap) {
-    return this.configMap ? this.configMap[this.currentModuleName] : undefined;
-    /*} else {
-     throw new Error("There is no Config for current module name " + this.currentModuleName);
-     }*/
-  };
 
   this.setConfig = function (moduleName, moduleConfig) {
     this.configMap[moduleName] = moduleConfig;
