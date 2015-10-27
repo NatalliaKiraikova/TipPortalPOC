@@ -6,7 +6,7 @@
     .config(routeConfig);
 
   /** @ngInject */
-  function routeConfig($stateProvider, $urlRouterProvider, tipRouterProvider) {
+  function routeConfig($urlRouterProvider, tipRouterProvider) {
     tipRouterProvider.addNestedState({
       name: "ipacsroute1",
       url: "ipacsroute1",

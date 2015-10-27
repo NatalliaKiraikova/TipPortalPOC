@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -7,11 +7,17 @@
 
   /** @ngInject */
   function TopController(contextModel, DiscoveryService) {
-    this.changeModule = function(name){
+    var self = this;
+
+    this.changeModule = function (name) {
       //load navigation items here
       contextModel.setCurrentModuleName(name);
     };
 
-    this.moduleList = DiscoveryService.getAvailableModules();
+    DiscoveryService.getAvailableModules().then(
+      function (resp) {
+        self.moduleList = resp;
+      }
+    );
   }
 })();
