@@ -36,7 +36,8 @@ module.exports = function(config) {
       'bower_components/angular-tiny-eventemitter/dist/angular-tiny-eventemitter.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
-      'app/**/*spec.js'
+      'app/**/*spec.js',
+      'app/tip.core.context/*.js'
     ],
 
     // list of files / patterns to exclude
