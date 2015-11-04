@@ -2,6 +2,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-.demo-class{
-  color:cyan;
+.demo-class {
+  color: cyan;
+}
+
+.user-profile-container {
+  width: 1200px;
 }

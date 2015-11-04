@@ -10,6 +10,7 @@
     tipRouterProvider.addNestedState({
       name: "userinfo",
       url: "userinfo",
+      controller: 'tip.portal.demo.UserInfoController',
       templateUrl: "/tip.portal.demo/tmpl/userinfo.tmpl.html"
     });
     tipRouterProvider
